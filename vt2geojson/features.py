@@ -44,7 +44,7 @@ class Feature:
             return [long_res, lat_res]
 
         def project(coords):
-            if all(isinstance(x, int) or isinstance(x, float) for x in coords):
+            if coords and all(isinstance(x, int) or isinstance(x, float) for x in coords):
                 assert len(coords) == 2
                 return project_one(coords[0], coords[1])
             return [project(l) for l in coords]
