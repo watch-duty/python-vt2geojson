@@ -52,6 +52,15 @@ class Feature:
         coords = project(self.tiles_coordinates)
         geometry_type = self.geometry_type.value
 
+        maybe_id = self.obj.get("id", None)
+        id_attrs = (
+            {
+                "id": self.obj.get("id"),
+            }
+            if maybe_id is not None
+            else {}
+        )
+
         result = {
             "type": "Feature",
             "geometry": {
